@@ -69,6 +69,7 @@ private extension PresenterViewController {
                                                                   shadowOffset: .zero,
                                                                   shadowColor: .red)
         configuration.drawerShadowConfiguration = drawerShadowConfiguration // default is nil
+        configuration.drawerBackgroundConfiguration = .dark
 
         drawerDisplayController = DrawerDisplayController(presentingViewController: self,
                                                           presentedViewController: vc,

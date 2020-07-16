@@ -179,3 +179,22 @@ extension PresentationController {
         containerView.addSubview(drawerMarkView)
     }
 }
+
+extension PresentationController {
+    func setupBackgroundView() {
+        guard let config = self.configuration.drawerBackgroundConfiguration else { return }
+        guard let presentationContainerView = self.presentationContainerView else { return }
+
+        let backgroundView = config.make()
+        backgroundView.frame = presentationContainerView.bounds
+        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        presentationContainerView.insertSubview(backgroundView, at: 0)
+
+        self.backgroundView = backgroundView
+    }
+
+    func removeBackgroundView() {
+        backgroundView?.removeFromSuperview()
+    }
+}
